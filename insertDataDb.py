@@ -1,10 +1,10 @@
 import psycopg2
 
 import databaseConnection
+import main
 
-cur = databaseConnection.conn.cursor()
 def insertData(candle_date, interval,close_price, image):
-    cur.execute(
+    main.cur.execute(
         "INSERT INTO nifty_15min_images (candle_date, interval,close_price, image) VALUES (%s, %s, %s,%s)",
         (candle_date, interval,close_price, psycopg2.Binary(image))
     )

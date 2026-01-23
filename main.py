@@ -13,7 +13,7 @@ import insertDataDb
 import compareImage
 import compareDataHybrid
 
-# Fetch NIFTY daily data
+# Fetch NIFTY daily data download
 # df = yf.download("^NSEI", period="1mo", interval="1d", auto_adjust=False,
 #     progress=False)
 
@@ -31,6 +31,7 @@ df = df.apply(pd.to_numeric, errors='coerce')
 df.dropna(inplace=True)
 
 df.index = pd.to_datetime(df.index)
+df.index = df.index.tz_convert('Asia/Kolkata')
 df['date'] = df.index.date
 grouped = df.groupby('date')
 interval = '15m'
