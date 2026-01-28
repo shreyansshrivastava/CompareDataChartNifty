@@ -10,8 +10,8 @@ import mplfinance as mpf
 import os
 from io import BytesIO
 import insertDataDb
-import compareImage
-import compareDataHybrid
+# import compareImage
+# import compareDataHybrid
 
 # Fetch NIFTY daily data download
 # df = yf.download("^NSEI", period="1mo", interval="1d", auto_adjust=False,
@@ -35,7 +35,7 @@ df.index = df.index.tz_convert('Asia/Kolkata')
 df['date'] = df.index.date
 grouped = df.groupby('date')
 interval = '15m'
-checkDbTable.checkTable()
+# checkDbTable.checkTable()
 for date, day_df in df.groupby('date'):
     day_df = day_df.drop(columns=['date'])
 
@@ -63,9 +63,9 @@ print("Candlestick image saved")
 
 #compareDataPixel.compare_latest_with_all_pixel()
 #SelectDataFromDb.selectDayData()
-#compareDataSSIM.compare_latest_with_all_ssim()
-compareDataHybrid.compare_latest_with_all_hybrid()
-databaseConnection.conn.commit()
+# #compareDataSSIM.compare_latest_with_all_ssim()
+# compareDataHybrid.compare_latest_with_all_hybrid()
+# databaseConnection.conn.commit()
 
 
 
