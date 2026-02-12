@@ -17,7 +17,7 @@ import insertDataDb
 # df = yf.download("^NSEI", period="1mo", interval="1d", auto_adjust=False,
 #     progress=False)
 
-df = yf.download("^NSEI", period="30d", interval="15m", auto_adjust=False,
+df = yf.download("^NSEI", period="5d", interval="15m", auto_adjust=False,
     progress=False)
 
 if isinstance(df.columns, pd.MultiIndex):
